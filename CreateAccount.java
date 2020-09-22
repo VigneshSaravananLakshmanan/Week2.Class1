@@ -52,7 +52,7 @@ public class CreateAccount {
 		
 				
 		/*click on Create account using collection based Xpath */
-		driver.findElementByXPath("(//a[contains(text(),'Create Account')]").click();
+		driver.findElementByXPath("//a[contains(text(),'Create Account')]").click();
 		
 		
 
@@ -74,13 +74,13 @@ public class CreateAccount {
 		
 		
 		/* Enter value for AnnualRevenue Field using Xpath Locator but class as Attribute */
-		driver.findElementById("//input[@class = 'inputBox' and @id ='annualRevenue']").sendKeys("1000");
+		driver.findElementByXPath("//input[@class = 'inputBox' and @id ='annualRevenue']").sendKeys("1000");
 		
 		
 		/* Select Industry as ComputerSoftware */
 		
 			/* Identify the web element Industry */
-		       WebElement Industry = driver.findElementById("Select Industry as ComputerSoftware");
+		       WebElement Industry = driver.findElementByXPath("//select[@class ='inputBox' and @name= 'industryEnumId']");
 		       
 		       /* Create an object for Select class and pass the webelement Industry */
 		       
@@ -94,7 +94,7 @@ public class CreateAccount {
 	    /*Select OwnerShip as S-Corporation using SelectByVisibletext */
 		       
 		       /* Identify the web element Ownership */
-		       WebElement Ownership = driver.findElementById("ownershipEnumId");
+		       WebElement Ownership = driver.findElementByName("ownershipEnumId");
 		       
 		       /* Create an object for Select class and pass the webelement Industry */
 		       
@@ -153,6 +153,12 @@ public class CreateAccount {
 		       
 		       /* Click on Create Account */
 		       driver.findElementByXPath("//input[contains(@onclick ,'submitFormWithSingleClick')]").click();
+		       
+		       /* inducing wait time */
+		       Thread.sleep(6000);
+		       
+		       /* close the browser */
+		       driver.close();
 		       
 		       
 		      
